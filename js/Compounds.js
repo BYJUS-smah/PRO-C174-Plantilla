@@ -1,7 +1,7 @@
 AFRAME.registerComponent("atoms", {
   init: async function () {
 
-    //Get the compund details of the element
+    //Obtener los detalles de la composición del elemento
     var compounds = await this.getCompounds();
 
     var barcodes = Object.keys(compounds);
@@ -9,7 +9,7 @@ AFRAME.registerComponent("atoms", {
     barcodes.map(barcode => {
       var element = compounds[barcode];
 
-      //Call the function
+      //Llamar a la función
       this.createAtoms(element);
     });
 
@@ -26,15 +26,15 @@ AFRAME.registerComponent("atoms", {
   },
   createAtoms: async function (element) {
 
-    //Element data
+    //Datos del elemento
     var elementName = element.element_name;
     var barcodeValue = element.barcode_value;
     var numOfElectron = element.number_of_electron;
 
-    //Get the color of the element
+    //Obtener el color del elemento
     var colors = await this.getElementColors();
 
-    //Scene
+    //Escena
     var scene = document.querySelector("a-scene");
 
     //Add marker entity for BARCODE marker
@@ -51,7 +51,7 @@ AFRAME.registerComponent("atoms", {
     atom.setAttribute("id", `${elementName}-${barcodeValue}`);
     marker.appendChild(atom);
 
-    //Create atom card
+    //Crear tarjeta de átomo
     var card = document.createElement("a-entity");
     card.setAttribute("id", `card-${elementName}`);
     card.setAttribute("geometry", {
@@ -69,7 +69,7 @@ AFRAME.registerComponent("atoms", {
 
     atom.appendChild(card);
 
-    //Create nucleus
+    //Crear núcleo
     var nucleusRadius = 0.2;
     var nucleus = document.createElement("a-entity");
     nucleus.setAttribute("id", `nucleus-${elementName}`);
@@ -103,7 +103,7 @@ AFRAME.registerComponent("atoms", {
     /*
     
     
-    REPLACE THE COMMENT WITH THE CODE
+    REMPLAZA EL COMENTARIO CON CÓDIGO
     
     
     
