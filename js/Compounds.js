@@ -37,7 +37,7 @@ AFRAME.registerComponent("atoms", {
     //Escena
     var scene = document.querySelector("a-scene");
 
-    //Add marker entity for BARCODE marker
+    //Añadir entidad de marcador para el marcador de código de barras
     var marker = document.createElement("a-marker");
 
     marker.setAttribute("id", `marker-${barcodeValue}`);
